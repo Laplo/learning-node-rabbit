@@ -11,7 +11,9 @@ router.post('/hello',async (req,res,next)=>{
 
 router.post('/msg',async(req, res, next)=>{
     let { queueName, payload } = req.body;
-    await publishToQueue(queueName, payload);
+    for (const el of Array.from(Array(50).keys())) {
+        await publishToQueue(queueName, "Bonjour " + el);
+    }
     res.statusCode = 200;
     res.data = {"message-sent":true};
     next();
