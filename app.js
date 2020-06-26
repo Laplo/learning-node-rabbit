@@ -31,7 +31,7 @@ app.use((req, res, next) => {
     res.status(res.statusCode || 200).send({ status: true, response: res.data });
 })
 
-app.listen(30006,()=>{
+app.listen(30006, async () =>{
     console.log(' ********** : running on 30006');
 })
 
