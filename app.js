@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import user from './routes/user';
 
-let app = express();
+const app = express();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
@@ -29,11 +29,11 @@ app.use((req, res, next) => {
     }
 
     res.status(res.statusCode || 200).send({ status: true, response: res.data });
-})
+});
 
 app.listen(30006, async () =>{
     console.log(' ********** : running on 30006');
-})
+});
 
 process.on('exit', (code) => {
     console.log(`About to exit with code: ${code}`);
